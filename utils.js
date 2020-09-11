@@ -34,16 +34,18 @@ function newElement() {
   items.push(newItem);
 
   var totalVar = document.getElementById("totalSpan");
-  total += Number(inputCost);
+  
   totalVar.innerText = total;
   var t = document.createTextNode(inputValue);
   var cost = document.createTextNode(inputCost);
   li.appendChild(t);
   //li.appendChild(tab);
   li.appendChild(cost);
-  if (inputValue === '') {
-    alert("You must write something!");
+  if (inputValue === '' || inputCost === '') {
+    document.getElementById("myDIV").style.backgroundColor = "red";
   } else {
+    document.getElementById("myDIV").style.backgroundColor = "transparent";
+    total += Number(inputCost);
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("myInput").value = "";
